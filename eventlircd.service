@@ -4,10 +4,10 @@ After=systemd-udevd.service
 
 [Service]
 Type=forking
-ExecStartPre=/bin/mkdir -p /run/lirc
-ExecStartPre=/bin/rm -f /dev/lircd
-ExecStartPre=/bin/rm -f /run/lirc/lircd
-ExecStartPre=/bin/ln -s /run/lirc/lircd /dev/lircd
+ExecStartPre=/usr/bin/mkdir -p /run/lirc
+ExecStartPre=/usr/bin/rm -f /dev/lircd
+ExecStartPre=/usr/bin/rm -f /run/lirc/lircd
+ExecStartPre=/usr/bin/ln -s /run/lirc/lircd /dev/lircd
 ExecStart=/usr/bin/eventlircd --evmap=/etc/eventlircd.d --socket=/run/lirc/lircd
 ExecStopPost=/bin/rm -f /dev/lircd
 ExecStopPost=/bin/rm -f /run/lirc/lircd

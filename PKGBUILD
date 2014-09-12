@@ -13,8 +13,11 @@ conflicts=()
 replaces=()
 backup=()
 #install=()
-source=("https://launchpad.net/~yavdr/+archive/main/+files/eventlircd_0.0.1%2Bsvn20110409.0930.orig.tar.gz")
-md5sums=('c5c126946bb40e8a7f0c033af87e7334')
+source=("https://launchpad.net/~yavdr/+archive/main/+files/eventlircd_0.0.1%2Bsvn20110409.0930.orig.tar.gz"
+        "eventlircd.service")
+ 
+md5sums=('c5c126946bb40e8a7f0c033af87e7334'
+         '3d90ef240e4273f2b3e74835a2737eae')
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
@@ -38,6 +41,7 @@ package() {
   cd "${srcdir}/${pkgname}-${pkgver}"
   make DESTDIR="${pkgdir}" install
   install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
+  install -Dm644 "${srcdir}/eventlircd.service" "$pkgdir/usr/lib/systemd/system/eventlircd.service"
 }
 
  
