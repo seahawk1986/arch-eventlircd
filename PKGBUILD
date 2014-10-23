@@ -17,7 +17,7 @@ source=("https://launchpad.net/~yavdr/+archive/main/+files/eventlircd_0.0.1%2Bsv
         "eventlircd.service")
  
 md5sums=('c5c126946bb40e8a7f0c033af87e7334'
-         '3d90ef240e4273f2b3e74835a2737eae')
+         '42612a870047e245723b9c0efd0e0044')
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
