@@ -32,7 +32,7 @@ build() {
         --disable-dependency-tracking \
         --with-lircd-socket=/var/run/lirc/lircd \
         --with-evmap-dir=/etc/eventlircd.d \
-        --with-udev-dir=/lib/udev
+        --with-udev-dir=/usr/lib/udev
   sed -i 's/\/sbin/\/bin/' Makefile
   make
 }
