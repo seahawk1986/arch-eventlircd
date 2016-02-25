@@ -14,10 +14,17 @@ replaces=()
 backup=()
 #install=()
 source=("https://launchpad.net/~yavdr/+archive/main/+files/eventlircd_0.0.1%2Bsvn20110409.0930.orig.tar.gz"
+        "eventlircd-kernel-4.4.patch::https://raw.githubusercontent.com/OpenELEC/OpenELEC.tv/74a46570d4c415023ec7188c41de9768490e0e6f/packages/sysutils/eventlircd/patches/eventlircd-kernel-4.4.patch"
         "eventlircd.service")
  
 md5sums=('c5c126946bb40e8a7f0c033af87e7334'
+         '28425e50dd25ce65fbac437327adf9df'
          '42612a870047e245723b9c0efd0e0044')
+
+prepare() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  patch -p1 -i "${srcdir}/eventlircd-kernel-4.4.patch"
+}
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
